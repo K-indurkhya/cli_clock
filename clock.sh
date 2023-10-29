@@ -15,7 +15,7 @@ draw_clock() {
 draw_stopwatch() {
     SECONDS=0
     while true; do
-        printf "\r    \033[1mStopwatch\033[0m   \033[32m%02d:%02d:%02d\033[0m" $((SECONDS/3600)) $((SECONDS%3600/60)) $((SECONDS%60))
+        printf "\r    \033[1m⏱ Stopwatch\033[0m   \033[32m%02d:%02d:%02d\033[0m" $((SECONDS/3600)) $((SECONDS%3600/60)) $((SECONDS%60))
         sleep 1
         ((SECONDS++))
     done
@@ -24,12 +24,12 @@ draw_stopwatch() {
 draw_timer() {
     duration=$1
     while [ $duration -gt 0 ]; do
-        printf "\r    \033[1mTimer\033[0m   \033[31m%02d:%02d:%02d\033[0m" $((duration/3600)) $(( (duration/60)%60)) $((duration%60))
+        printf "\r    \033[1m⏳ Timer\033[0m   \033[31m%02d:%02d:%02d\033[0m" $((duration/3600)) $(( (duration/60)%60)) $((duration%60))
         sleep 1
         ((duration--))
     done
     clear
-    echo "Timer done!"
+    echo -e "\nTimer done!"
 }
 
 display_help() {
@@ -38,6 +38,7 @@ display_help() {
     echo "  -c, --clock         Display an ASCII clock"
     echo "  -s, --stopwatch     Start a stopwatch"
     echo "  -t, --timer [SEC]   Start a timer for the specified duration in seconds"
+    echo "  -p, --pomodoro      Start a Pomodoro timer"
     echo "  -h, --help          Display this help"
 }
 
@@ -49,14 +50,14 @@ draw_pomodoro() {
 
     while true; do
         if [ $pomodoro_count -lt 4 ]; then
-            echo -e "\n    \033[1mPomodoro $((pomodoro_count + 1))\033[0m (25 minutes)"
+            echo -e "\n    \033[1m🍅 Pomodoro $((pomodoro_count + 1))\033[0m (25 minutes)"
             draw_timer $pomodoro_duration
             pomodoro_count=$((pomodoro_count + 1))
             if [ $pomodoro_count -lt 4 ]; then
-                echo -e "\n    \033[1mShort Break\033[0m (5 minutes)"
+                echo -e "\n    \033[1m☕ Short Break\033[0m (5 minutes)"
                 draw_timer $short_break_duration
             else
-                echo -e "\n    \033[1mLong Break\033[0m (15 minutes)"
+                echo -e "\n    \033[1m🍃 Long Break\033[0m (15 minutes)"
                 draw_timer $long_break_duration
                 pomodoro_count=0
             fi
