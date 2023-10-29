@@ -13,6 +13,10 @@ The stopwatch function provides a real-time display of elapsed time. It starts c
 ### 3. Timer
 Users can initiate a countdown timer for a specific duration in seconds. The tool will countdown the specified duration, displaying hours, minutes, and seconds until completion.
 
+### 4. Pomodoro Timer
+A Pomodoro timer implements the Pomodoro Technique by allowing users to initiate a 25-minute focus timer followed by a 5-minute break timer. The tool will countdown and signal when to switch between focus and break periods.
+
+
 ## Installation
 
 To utilize this utility, follow these steps:
@@ -56,6 +60,11 @@ The script supports the following command-line options:
 
 ```bash
 ./cli_tool.sh --timer 60
+```
+
+**To set a pomodoro timer for 25 minutes:**
+```bash
+./cli_tool.sh --pomodoro
 ```
 
 **For help:**
