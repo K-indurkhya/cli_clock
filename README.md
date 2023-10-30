@@ -30,7 +30,7 @@ To utilize this utility, follow these steps:
 2. **Make the Script Executable**
 
     ```bash
-    chmod +x cli_tool.sh
+    chmod +x clock.sh
     ```
 
 ## Usage
@@ -47,30 +47,30 @@ The script supports the following command-line options:
 **To display the clock:**
 
 ```bash
-./cli_tool.sh --clock
+./clock.sh --clock
 ```
 
 **To start a stopwatch:**
 
 ```bash
-./cli_tool.sh --stopwatch
+./clock.sh --stopwatch
 ```
 
 **To set a timer for 60 seconds:**
 
 ```bash
-./cli_tool.sh --timer 60
+./clock.sh --timer 60
 ```
 
 **To set a pomodoro timer for 25 minutes:**
 ```bash
-./cli_tool.sh --pomodoro
+./clock.sh --pomodoro
 ```
 
 **For help:**
 
 ```bash
-./cli_tool.sh --help
+./clock.sh --help
 ```
 
 ### Notes
