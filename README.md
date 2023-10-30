@@ -24,7 +24,7 @@ To utilize this utility, follow these steps:
 1. **Clone the Repository**
 
     ```bash
-    git clone https://github.com/QuillAndCompile/cli-time-utility.git
+    git clone https://github.com/QuillAndCompile/cli_clock.git
     ```
 
 2. **Make the Script Executable**
